@@ -630,6 +630,17 @@ extension Reactive where Base: SessionManager {
             headers: headers
         ).flatMap { $0.rx.responseJSON() }
     }
+    
+    /**
+     Creates an observable of the returned decoded JSON as `AnyObject` and the response.
+     
+     - parameter urlRequest: An object adopting `URLRequestConvertible`
+     
+     - returns: An observable of the tuple `(NSHTTPURLResponse, AnyObject)`
+     */
+    public func requestJSON(_ urlRequest: URLRequestConvertible) -> Observable<(HTTPURLResponse, Any)> {
+        return request(urlRequest: urlRequest).flatMap { $0.rx.responseJSON() }
+    }
 
     /**
      Creates an observable of the data decoded from JSON and processed as `AnyObject`.

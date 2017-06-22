@@ -466,7 +466,7 @@ extension Reactive where Base: SessionManager {
                                    method: method,
                                    parameters: parameters,
                                    encoding: encoding,
-                                   headers: headers).validate()
+                                   headers: headers).validate(statusCode: 200 ..< 305)
         }
     }
 
@@ -484,7 +484,7 @@ extension Reactive where Base: SessionManager {
         -> Observable<DataRequest>
     {
         return request { manager in
-            return manager.request(urlRequest).validate()
+            return manager.request(urlRequest).validate(statusCode: 200 ..< 305)
         }
     }
 

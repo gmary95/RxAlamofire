@@ -6,8 +6,6 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-import Foundation
-
 /// Supports push-style iteration over an observable sequence.
 public protocol ObserverType {
     /// The type of elements in sequence that observer can observe.
@@ -15,7 +13,7 @@ public protocol ObserverType {
 
     /// Notify observer about sequence event.
     ///
-    /// - parameter event: Event that occured.
+    /// - parameter event: Event that occurred.
     func on(_ event: Event<E>)
 }
 
@@ -25,18 +23,18 @@ extension ObserverType {
     /// Convenience method equivalent to `on(.next(element: E))`
     ///
     /// - parameter element: Next element to send to observer(s)
-    public final func onNext(_ element: E) {
-        on(.next(element))
+    public func onNext(_ element: E) {
+        self.on(.next(element))
     }
     
     /// Convenience method equivalent to `on(.completed)`
-    public final func onCompleted() {
-        on(.completed)
+    public func onCompleted() {
+        self.on(.completed)
     }
     
     /// Convenience method equivalent to `on(.error(Swift.Error))`
     /// - parameter error: Swift.Error to send to observer(s)
-    public final func onError(_ error: Swift.Error) {
-        on(.error(error))
+    public func onError(_ error: Swift.Error) {
+        self.on(.error(error))
     }
 }

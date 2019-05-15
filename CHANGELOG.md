@@ -12,6 +12,24 @@ All notable changes to this project will be documented in this file.
 ## 4.4.0
 
 #### Updated
+* Support macOS and watchOS through Carthage 
+* Added Example projects for macOS and watchOS 
+* Uses RxSwift 5.0.0
+* Upgrade project to Swift 5.0
+
+## 4.5.0
+
+#### Fixed
+*  Minimum Swift version is 4.2 (More details in #144)
+
+## 4.4.1
+
+#### Updated
+* RxSwift updated to 4.5.0 to officially support Xcode 10.2.
+
+## 4.4.0
+
+#### Updated
 * Example project now compatible with Swift 5.0.
 
 ## 4.3.0
